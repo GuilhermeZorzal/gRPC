@@ -5,7 +5,6 @@ services:
     ports:
       - ${CLIENT_PORT}
     volumes:
-      - ./client:/app/client
       - type: bind
         source: ./teste.proto
         target: /app/teste.proto
@@ -18,16 +17,13 @@ services:
 
   server:
     build: ./server
-    container_name: server
-    # container_name: ${SERVER_CONTAINER_NAME}
+    container_name: serverGRPC
     ports:
       - ${SERVER_PORT}
     volumes:
-      # - ./server:/app/server
       - type: bind
         source: ./teste.proto
         target: /app/teste.proto
-        # target: /app/proto/teste.proto
     # restart: always
     depends_on:
       - db
@@ -51,13 +47,6 @@ services:
 
 volumes:
   postgres_data:
-  # proto_file:
-  #   driver: local
-  #   driver_opts:
-  #     type: none
-  #     o: bind
-  #     device: ./teste.proto
-
 
 networks:
   net1:
