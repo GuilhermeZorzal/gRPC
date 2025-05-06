@@ -24,17 +24,17 @@ _sym_db = _symbol_database.Default()
 
 
 
-DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10serializer.proto\"(\n\x10OperationRequest\x12\t\n\x01\x61\x18\x01 \x01(\x01\x12\t\n\x01\x62\x18\x02 \x01(\x01\"/\n\x0eResultResponse\x12\x0e\n\x06result\x18\x01 \x01(\x01\x12\r\n\x05\x65rror\x18\x02 \x01(\t\")\n\nSerialData\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\x12\r\n\x05\x64\x61ta2\x18\x02 \x01(\x0c\x32\x64\n\nSerializer\x12+\n\x03\x41\x64\x64\x12\x11.OperationRequest\x1a\x0f.ResultResponse\"\x00\x12)\n\x0bTesteSerial\x12\x0b.SerialData\x1a\x0b.SerialData\"\x00\x62\x06proto3')
+DESCRIPTOR = _descriptor_pool.Default().AddSerializedFile(b'\n\x10serializer.proto\"/\n\x0eResultResponse\x12\x0e\n\x06result\x18\x01 \x01(\x01\x12\r\n\x05\x65rror\x18\x02 \x01(\t\"(\n\x10OperationRequest\x12\t\n\x01\x61\x18\x01 \x01(\x02\x12\t\n\x01\x62\x18\x02 \x01(\x02\")\n\nSerialData\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\x12\r\n\x05\x64\x61ta2\x18\x02 \x01(\x0c\x32\x64\n\nSerializer\x12+\n\x03\x41\x64\x64\x12\x11.OperationRequest\x1a\x0f.ResultResponse\"\x00\x12)\n\x0bTesteSerial\x12\x0b.SerialData\x1a\x0b.SerialData\"\x00\x62\x06proto3')
 
 _globals = globals()
 _builder.BuildMessageAndEnumDescriptors(DESCRIPTOR, _globals)
 _builder.BuildTopDescriptorsAndMessages(DESCRIPTOR, 'serializer_pb2', _globals)
 if not _descriptor._USE_C_DESCRIPTORS:
   DESCRIPTOR._loaded_options = None
-  _globals['_OPERATIONREQUEST']._serialized_start=20
-  _globals['_OPERATIONREQUEST']._serialized_end=60
-  _globals['_RESULTRESPONSE']._serialized_start=62
-  _globals['_RESULTRESPONSE']._serialized_end=109
+  _globals['_RESULTRESPONSE']._serialized_start=20
+  _globals['_RESULTRESPONSE']._serialized_end=67
+  _globals['_OPERATIONREQUEST']._serialized_start=69
+  _globals['_OPERATIONREQUEST']._serialized_end=109
   _globals['_SERIALDATA']._serialized_start=111
   _globals['_SERIALDATA']._serialized_end=152
   _globals['_SERIALIZER']._serialized_start=154
