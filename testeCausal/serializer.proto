@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+service Serializer {
+  rpc Discovery(SerialData) returns (SerialData) {}
+  rpc Estimation(SerialData) returns (SerialData) {}
+  rpc Refutation(SerialData) returns (SerialData) {}
+  rpc Graphs(SerialData) returns (SerialData) {}
+}
+
+message SerialData { bytes data = 2; }
