@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+service Calculator {
+  rpc Add(OperationRequest) returns (ResultResponse) {}
+  rpc Subtract(OperationRequest) returns (ResultResponse) {}
+  rpc Multiply(OperationRequest) returns (ResultResponse) {}
+  rpc Divide(OperationRequest) returns (ResultResponse) {}
+  rpc TesteSerial(SerialData) returns (SerialData) {}
+}
+
+message OperationRequest {
+  double a = 1;
+  double b = 2;
+}
+
+message ResultResponse {
+  double result = 1;
+  string error = 2;
+}
+
+message SerialData {
+  string data = 1;
+  bytes data2 = 2;
+}
