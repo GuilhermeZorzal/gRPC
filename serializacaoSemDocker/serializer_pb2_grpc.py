@@ -3,7 +3,7 @@
 import grpc
 import warnings
 
-import calculator_pb2 as calculator__pb2
+import serializer_pb2 as serializer__pb2
 
 GRPC_GENERATED_VERSION = '1.71.0'
 GRPC_VERSION = grpc.__version__
@@ -18,14 +18,14 @@ except ImportError:
 if _version_not_supported:
     raise RuntimeError(
         f'The grpc package installed is at version {GRPC_VERSION},'
-        + f' but the generated code in calculator_pb2_grpc.py depends on'
+        + f' but the generated code in serializer_pb2_grpc.py depends on'
         + f' grpcio>={GRPC_GENERATED_VERSION}.'
         + f' Please upgrade your grpc module to grpcio>={GRPC_GENERATED_VERSION}'
         + f' or downgrade your generated code using grpcio-tools<={GRPC_VERSION}.'
     )
 
 
-class CalculatorStub(object):
+class SerializerStub(object):
     """Missing associated documentation comment in .proto file."""
 
     def __init__(self, channel):
@@ -34,107 +34,107 @@ class CalculatorStub(object):
         Args:
             channel: A grpc.Channel.
         """
-        self.Add = channel.unary_unary(
-                '/Calculator/Add',
-                request_serializer=calculator__pb2.OperationRequest.SerializeToString,
-                response_deserializer=calculator__pb2.ResultResponse.FromString,
+        self.Teste = channel.unary_unary(
+                '/Serializer/Teste',
+                request_serializer=serializer__pb2.SerialData.SerializeToString,
+                response_deserializer=serializer__pb2.SerialData.FromString,
                 _registered_method=True)
-        self.Subtract = channel.unary_unary(
-                '/Calculator/Subtract',
-                request_serializer=calculator__pb2.OperationRequest.SerializeToString,
-                response_deserializer=calculator__pb2.ResultResponse.FromString,
+        self.Discovery = channel.unary_unary(
+                '/Serializer/Discovery',
+                request_serializer=serializer__pb2.SerialData.SerializeToString,
+                response_deserializer=serializer__pb2.SerialData.FromString,
                 _registered_method=True)
-        self.Multiply = channel.unary_unary(
-                '/Calculator/Multiply',
-                request_serializer=calculator__pb2.OperationRequest.SerializeToString,
-                response_deserializer=calculator__pb2.ResultResponse.FromString,
+        self.Estimation = channel.unary_unary(
+                '/Serializer/Estimation',
+                request_serializer=serializer__pb2.SerialData.SerializeToString,
+                response_deserializer=serializer__pb2.SerialData.FromString,
                 _registered_method=True)
-        self.Divide = channel.unary_unary(
-                '/Calculator/Divide',
-                request_serializer=calculator__pb2.OperationRequest.SerializeToString,
-                response_deserializer=calculator__pb2.ResultResponse.FromString,
+        self.Refutation = channel.unary_unary(
+                '/Serializer/Refutation',
+                request_serializer=serializer__pb2.SerialData.SerializeToString,
+                response_deserializer=serializer__pb2.SerialData.FromString,
                 _registered_method=True)
-        self.TesteSerial = channel.unary_unary(
-                '/Calculator/TesteSerial',
-                request_serializer=calculator__pb2.SerialData.SerializeToString,
-                response_deserializer=calculator__pb2.SerialData.FromString,
+        self.Graphs = channel.unary_unary(
+                '/Serializer/Graphs',
+                request_serializer=serializer__pb2.SerialData.SerializeToString,
+                response_deserializer=serializer__pb2.SerialData.FromString,
                 _registered_method=True)
 
 
-class CalculatorServicer(object):
+class SerializerServicer(object):
     """Missing associated documentation comment in .proto file."""
 
-    def Add(self, request, context):
+    def Teste(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Subtract(self, request, context):
+    def Discovery(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Multiply(self, request, context):
+    def Estimation(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def Divide(self, request, context):
+    def Refutation(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
-    def TesteSerial(self, request, context):
+    def Graphs(self, request, context):
         """Missing associated documentation comment in .proto file."""
         context.set_code(grpc.StatusCode.UNIMPLEMENTED)
         context.set_details('Method not implemented!')
         raise NotImplementedError('Method not implemented!')
 
 
-def add_CalculatorServicer_to_server(servicer, server):
+def add_SerializerServicer_to_server(servicer, server):
     rpc_method_handlers = {
-            'Add': grpc.unary_unary_rpc_method_handler(
-                    servicer.Add,
-                    request_deserializer=calculator__pb2.OperationRequest.FromString,
-                    response_serializer=calculator__pb2.ResultResponse.SerializeToString,
+            'Teste': grpc.unary_unary_rpc_method_handler(
+                    servicer.Teste,
+                    request_deserializer=serializer__pb2.SerialData.FromString,
+                    response_serializer=serializer__pb2.SerialData.SerializeToString,
             ),
-            'Subtract': grpc.unary_unary_rpc_method_handler(
-                    servicer.Subtract,
-                    request_deserializer=calculator__pb2.OperationRequest.FromString,
-                    response_serializer=calculator__pb2.ResultResponse.SerializeToString,
+            'Discovery': grpc.unary_unary_rpc_method_handler(
+                    servicer.Discovery,
+                    request_deserializer=serializer__pb2.SerialData.FromString,
+                    response_serializer=serializer__pb2.SerialData.SerializeToString,
             ),
-            'Multiply': grpc.unary_unary_rpc_method_handler(
-                    servicer.Multiply,
-                    request_deserializer=calculator__pb2.OperationRequest.FromString,
-                    response_serializer=calculator__pb2.ResultResponse.SerializeToString,
+            'Estimation': grpc.unary_unary_rpc_method_handler(
+                    servicer.Estimation,
+                    request_deserializer=serializer__pb2.SerialData.FromString,
+                    response_serializer=serializer__pb2.SerialData.SerializeToString,
             ),
-            'Divide': grpc.unary_unary_rpc_method_handler(
-                    servicer.Divide,
-                    request_deserializer=calculator__pb2.OperationRequest.FromString,
-                    response_serializer=calculator__pb2.ResultResponse.SerializeToString,
+            'Refutation': grpc.unary_unary_rpc_method_handler(
+                    servicer.Refutation,
+                    request_deserializer=serializer__pb2.SerialData.FromString,
+                    response_serializer=serializer__pb2.SerialData.SerializeToString,
             ),
-            'TesteSerial': grpc.unary_unary_rpc_method_handler(
-                    servicer.TesteSerial,
-                    request_deserializer=calculator__pb2.SerialData.FromString,
-                    response_serializer=calculator__pb2.SerialData.SerializeToString,
+            'Graphs': grpc.unary_unary_rpc_method_handler(
+                    servicer.Graphs,
+                    request_deserializer=serializer__pb2.SerialData.FromString,
+                    response_serializer=serializer__pb2.SerialData.SerializeToString,
             ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
-            'Calculator', rpc_method_handlers)
+            'Serializer', rpc_method_handlers)
     server.add_generic_rpc_handlers((generic_handler,))
-    server.add_registered_method_handlers('Calculator', rpc_method_handlers)
+    server.add_registered_method_handlers('Serializer', rpc_method_handlers)
 
 
  # This class is part of an EXPERIMENTAL API.
-class Calculator(object):
+class Serializer(object):
     """Missing associated documentation comment in .proto file."""
 
     @staticmethod
-    def Add(request,
+    def Teste(request,
             target,
             options=(),
             channel_credentials=None,
@@ -147,9 +147,9 @@ class Calculator(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/Calculator/Add',
-            calculator__pb2.OperationRequest.SerializeToString,
-            calculator__pb2.ResultResponse.FromString,
+            '/Serializer/Teste',
+            serializer__pb2.SerialData.SerializeToString,
+            serializer__pb2.SerialData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -161,7 +161,7 @@ class Calculator(object):
             _registered_method=True)
 
     @staticmethod
-    def Subtract(request,
+    def Discovery(request,
             target,
             options=(),
             channel_credentials=None,
@@ -174,9 +174,9 @@ class Calculator(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/Calculator/Subtract',
-            calculator__pb2.OperationRequest.SerializeToString,
-            calculator__pb2.ResultResponse.FromString,
+            '/Serializer/Discovery',
+            serializer__pb2.SerialData.SerializeToString,
+            serializer__pb2.SerialData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -188,7 +188,7 @@ class Calculator(object):
             _registered_method=True)
 
     @staticmethod
-    def Multiply(request,
+    def Estimation(request,
             target,
             options=(),
             channel_credentials=None,
@@ -201,9 +201,9 @@ class Calculator(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/Calculator/Multiply',
-            calculator__pb2.OperationRequest.SerializeToString,
-            calculator__pb2.ResultResponse.FromString,
+            '/Serializer/Estimation',
+            serializer__pb2.SerialData.SerializeToString,
+            serializer__pb2.SerialData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -215,7 +215,7 @@ class Calculator(object):
             _registered_method=True)
 
     @staticmethod
-    def Divide(request,
+    def Refutation(request,
             target,
             options=(),
             channel_credentials=None,
@@ -228,9 +228,9 @@ class Calculator(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/Calculator/Divide',
-            calculator__pb2.OperationRequest.SerializeToString,
-            calculator__pb2.ResultResponse.FromString,
+            '/Serializer/Refutation',
+            serializer__pb2.SerialData.SerializeToString,
+            serializer__pb2.SerialData.FromString,
             options,
             channel_credentials,
             insecure,
@@ -242,7 +242,7 @@ class Calculator(object):
             _registered_method=True)
 
     @staticmethod
-    def TesteSerial(request,
+    def Graphs(request,
             target,
             options=(),
             channel_credentials=None,
@@ -255,9 +255,9 @@ class Calculator(object):
         return grpc.experimental.unary_unary(
             request,
             target,
-            '/Calculator/TesteSerial',
-            calculator__pb2.SerialData.SerializeToString,
-            calculator__pb2.SerialData.FromString,
+            '/Serializer/Graphs',
+            serializer__pb2.SerialData.SerializeToString,
+            serializer__pb2.SerialData.FromString,
             options,
             channel_credentials,
             insecure,

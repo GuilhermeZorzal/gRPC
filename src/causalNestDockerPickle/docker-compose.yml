@@ -4,8 +4,12 @@ services:
     container_name: ${CLIENT_CONTAINER_NAME}
     ports:
       - ${CLIENT_PORT}
+    stdin_open: true
+    tty: true
     volumes:
       - type: bind
+        # source: ./serializer.proto
+        # target: /app/serializer.proto
         source: ./teste.proto
         target: /app/teste.proto
     # restart: always
@@ -23,6 +27,8 @@ services:
       - type: bind
         source: ./teste.proto
         target: /app/teste.proto
+        # source: ./serializer.proto
+        # target: /app/serializer.proto
     # restart: always
     networks:
         - net1

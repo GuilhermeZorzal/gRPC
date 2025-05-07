@@ -94,6 +94,25 @@ def run():
     problem = None
     teste = stub.Teste(grpc_methods.SerialData())
     print(teste)
+    try:
+        dataset = Dataset(data="path", target="cilinders", feature_mapping="objeto")
+        problem = Problem(
+            dataset=dataset,
+            description="analise de teste",
+            knowledge="teste2",
+        )
+        problem = grpc_discovery_results(problem)
+        problem = grpc_estimate_all_effects(problem)
+        problem = grpc_refute_all_results(problem)
+        problem = grpc_generate_all_results(problem)
+    except ValueError:
+        print("Please enter valid numbers!")
+    except grpc.RpcError as e:
+        print(f"RPC Error: {e.code()}: {e.details()}")
+    except KeyboardInterrupt:
+        print("\nExiting...")
+    print("FUNCIONOU TUDO")
+    return
     while True:
         try:
             print("Choose the operation:")

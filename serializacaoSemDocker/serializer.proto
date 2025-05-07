@@ -8,4 +8,7 @@ service Serializer {
   rpc Graphs(SerialData) returns (SerialData) {}
 }
 
-message SerialData { bytes data = 1; }
+message SerialData {
+  bytes data = 1;
+  string errorMessage = 2;
+}
