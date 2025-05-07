@@ -1,0 +1,41 @@
+services:
+  client:
+    build: ./client
+    container_name: ${CLIENT_CONTAINER_NAME}
+    ports:
+      - ${CLIENT_PORT}
+    stdin_open: true
+    tty: true
+    volumes:
+      - type: bind
+        # source: ./serializer.proto
+        # target: /app/serializer.proto
+        source: ./teste.proto
+        target: /app/teste.proto
+    # restart: always
+    depends_on:
+      - server
+    networks:
+        - net1
+
+  server:
+    build: ./server
+    container_name: serverGRPC
+    ports:
+      - ${SERVER_PORT}
+    volumes:
+      - type: bind
+        source: ./teste.proto
+        target: /app/teste.proto
+        # source: ./serializer.proto
+        # target: /app/serializer.proto
+    # restart: always
+    networks:
+        - net1
+
+volumes:
+  postgres_data:
+
+networks:
+  net1:
+    driver: bridge

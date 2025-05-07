@@ -9,6 +9,8 @@ def client():
 
     a = 3
     b = 2
+
+    print("fazendo a conta")
     response = stub.Add(teste_pb2.CalcRequest(a=a, b=b))
     print(response)
     # while True:
