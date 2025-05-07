@@ -1,10 +1,11 @@
 syntax = "proto3";
 
 service Serializer {
+  rpc Teste(SerialData) returns (SerialData) {}
   rpc Discovery(SerialData) returns (SerialData) {}
   rpc Estimation(SerialData) returns (SerialData) {}
   rpc Refutation(SerialData) returns (SerialData) {}
   rpc Graphs(SerialData) returns (SerialData) {}
 }
 
-message SerialData { bytes data = 2; }
+message SerialData { bytes data = 1; }

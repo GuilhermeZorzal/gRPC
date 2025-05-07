@@ -1,4 +1,5 @@
 import grpc
+import os
 
 # import calculator_pb2
 # import calculator_pb2_grpc
@@ -40,37 +41,55 @@ stub = grpc_types.SerializerStub(channel)
 def grpc_discovery_results(problem):
     obj = pickle.dumps(problem)
     response = stub.Discovery(grpc_methods.SerialData(data=obj))
-    problem = pickle.loads(response.data)
+    if not hasattr(response, "data") or not response.data:
+        print("Erro:", response.errorMessage)
+        return problem
+
+    problemBack = pickle.loads(response.data)
     print("Funcionou discovery!!")
-    return problem
+    return problemBack
 
 
 def grpc_estimate_all_effects(problem):
     obj = pickle.dumps(problem)
     response = stub.Estimation(grpc_methods.SerialData(data=obj))
-    problem = pickle.loads(response.data)
+    if not hasattr(response, "data") or not response.data:
+        print("Erro:", response.errorMessage)
+        return problem
+
+    problemBack = pickle.loads(response.data)
     print("Funcionou estimation!!")
-    return problem
+    return problemBack
 
 
 def grpc_refute_all_results(problem):
     obj = pickle.dumps(problem)
     response = stub.Refutation(grpc_methods.SerialData(data=obj))
-    problem = pickle.loads(response.data)
+    if not hasattr(response, "data") or not response.data:
+        print("Erro:", response.errorMessage)
+        return problem
+
+    problemBack = pickle.loads(response.data)
     print("Funcionou refutation!!")
-    return problem
+    return problemBack
 
 
 def grpc_generate_all_results(problem):
     obj = pickle.dumps(problem)
     response = stub.Graphs(grpc_methods.SerialData(data=obj))
-    problem = pickle.loads(response.data)
+    if not hasattr(response, "data") or not response.data:
+        print("Erro:", response.errorMessage)
+        return problem
+
+    problemBack = pickle.loads(response.data)
     print("Funcionou geracao dos grafos!!")
-    return problem
+    return problemBack
 
 
 def run():
     problem = None
+    teste = stub.Teste(grpc_methods.SerialData())
+    print(teste)
     while True:
         try:
             print("Choose the operation:")
@@ -82,6 +101,7 @@ def run():
             print(" - 6. print:")
 
             op = input("\nEnter operation: ")
+            os.system("clear")
             match op:
                 case "1":
                     dataset = Dataset(
