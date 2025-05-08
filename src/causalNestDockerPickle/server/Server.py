@@ -106,7 +106,7 @@ def serve():
     grpc_types.add_SerializerServicer_to_server(CausalNestServicer(), server)
     server.add_insecure_port("[::]:8000")
     server.start()
-    print("Calculator server running on port 50051")
+    print("Calculator server running on port 8000")
     server.wait_for_termination()
 
 
