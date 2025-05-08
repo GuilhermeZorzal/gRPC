@@ -76,6 +76,7 @@ def grpc_refute_all_results(problem):
 
 def grpc_generate_all_results(problem):
     obj = pickle.dumps(problem)
+
     response = stub.Graphs(grpc_methods.SerialData(data=obj))
     if not hasattr(response, "data") or not response.data:
         print("Erro:", response.errorMessage)
@@ -88,8 +89,7 @@ def grpc_generate_all_results(problem):
 
 def run():
     problem = None
-    teste = stub.Teste(grpc_methods.SerialData())
-    print(teste)
+    os.system("clear")
     while True:
         try:
             print("Choose the operation:")

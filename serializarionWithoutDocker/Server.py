@@ -93,8 +93,9 @@ class CausalNestServicer(grpc_types.SerializerServicer):
 
         if not problem:
             return context.abort(
-                StatusCode.FAILED_PRECONDITION, f"Fase de refutacao nao realizada"
+                StatusCode.FAILED_PRECONDITION, f"Fase de discovery não realizada"
             )
+        obj = pickle.dumps(problem)
         return grpc_methods.SerialData(data=obj)
 
 
